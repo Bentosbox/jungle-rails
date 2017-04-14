@@ -26,6 +26,27 @@
       </div>
     </div>
 
+  <div class="review-form">
+    <%= form_for [@product, @product.reviews.build] do |f| %>
+    <%= f.text_field :description %>
+    <%= f.select(:rating, [[0, 0], [1, 1], [2, 2], [3, 3], [4, 4], [5, 5]]) %>
+    <%= f.submit "Submit" %>
+    <% end %>
+  </div>
+
+    <div class="row">
+      <% @product.reviews.each do |review| %>
+        <% if review.description.present? %>
+          <dl class="dl-horizontal col-sm-8">
+            <dt>Description: </dt>
+            <dd><%= review.description %></dd>
+            <dt>Rating:</dt>
+            <dd><%= review.rating %></dd>
+          </dl>
+        <% end %>
+      <% end %>
+    </div>
+
   </article>
 
 </section>
