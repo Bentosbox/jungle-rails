@@ -4,6 +4,10 @@
     <h1>My Cart</h1>
   </header>
 
+  <% if cart.size == 0 %>
+    FEED ME SOME ITEMS AND RETURN FOR I AM HUNGRY OM NOM NOM <%= link_to "Home", root_path %>
+  <% else %>
+
   <div class="panel panel-default items">
     <table class="table table-bordered">
       <thead>
@@ -49,5 +53,7 @@
       <% end %>
     </div>
   </div>
+
+  <% end %>
 
 </section>
