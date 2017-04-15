@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :products do
     resources :reviews, only: [:create]
   end
+  resources :reviews, only: [:destroy]
 
   resource :cart, only: [:show] do
     put    :add_item
