@@ -15,11 +15,12 @@
       <tbody>
         <% @order_total = 0 %>
         <% @order.line_items.each do |item| %>
-          <%= render 'item', product_id: item.product_id, quantity: item.quantity %>
-        <% end %>
       </tbody>
       <tfoot>
         <tr>
+          <td> <%= item.product.name %></td>
+          <td> <%= item.product.price %></td>
+          <td> <%= item.product.quantity %></td>
           <th colspan="4">
             TOTAL:
           </th>
@@ -30,4 +31,5 @@
       </tfoot>
     </table>
   </div>
+        <% end %>
 </section>
