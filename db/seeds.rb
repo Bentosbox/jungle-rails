@@ -135,14 +135,6 @@ product2 = cat3.products.create!({
 
 puts "DONE!"
 
-User.destroy_all
-
-User.create (first_name: 'user1', last_name: 'something', email: "23@123.com", password_digest: "123")
-
-User.create (first_name: 'user2', last_name: 'something', email: "23@123.com", password_digest: "123")
-
-
-#REVIEWS
 
 puts "Re-creating Reviews ..."
 
