@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.feature "Visitor navigates to product page", type: :feature, js: true do
-before :each do
+RSpec.feature "AddToCarts", type: :feature, js: true do
+  before :each do
     @category = Category.create! name: 'Apparel'
 
     10.times do |n|
@@ -15,14 +15,16 @@ before :each do
     end
   end
 
-  scenario "They see all products" do
+  scenario "Cart increases by one" do
     # ACT
     visit root_path
 
     # DEBUG / VERIFY
 
-    first('article.product').find_link('Details').click
-    expect(page).to have_css 'article.product-detail'
+    first('article.product').find_link('Add').click
     save_screenshot
+
+    expect(page).to have_content "My Cart (1)"
+    # DEBUG / VERIFY
   end
 end
