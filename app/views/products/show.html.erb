@@ -22,6 +22,8 @@
           <dd><%= @product.quantity %></dd>
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
+          <dt>Average Rating</dt>
+          <dd><%= @product.reviews.sum(:rating) %></dd>
         </dl>
       </div>
     </div>
@@ -46,8 +48,9 @@
             <dd><%= review.description %></dd>
             <dt>Rating:</dt>
             <dd><%= review.rating %></dd>
-            <% if current_user.id == review.user_id %>
+            <% if current_user && current_user.id == review.user_id %>
               <%= button_to "Delete", review, method: :delete%>
+              <% else %>
             <% end %>
           </dl>
         <% end %>
